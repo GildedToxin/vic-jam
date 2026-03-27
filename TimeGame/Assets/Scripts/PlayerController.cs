@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private bool jumpPressed;
 
+    [Header("State")]
+    private bool isPushing = false;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -31,8 +34,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        HandleGravity();
+        if(!isPushing)
+            HandleMovement();
+
+        //HandleGravity();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -77,5 +82,10 @@ public class PlayerController : MonoBehaviour
     {
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void SetIsPushing(bool pushing)
+    {
+     isPushing = pushing;
     }
 }
