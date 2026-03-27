@@ -36,10 +36,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(!isPushing)
+        if (!isPushing)
+        {
             HandleMovement();
+            HandleGravity();
+        }
 
-        //HandleGravity();
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
