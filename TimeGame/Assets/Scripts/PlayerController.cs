@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public Transform cameraTransform;
+    public PlayerInteraction playerInteraction;
+    public PlayerInventory playerInventory;
 
     private CharacterController controller;
     private Vector3 velocity;

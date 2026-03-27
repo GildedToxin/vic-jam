@@ -6,8 +6,9 @@ public class PlayerInteraction : MonoBehaviour
     public float interactDistance = 3f;
     public LayerMask interactLayer;
     public Transform cameraTransform;
+    [SerializeField] private PlayerController playerController;
 
-   [SerializeField] private Interactable currentInteractable;
+    [SerializeField] private Interactable currentInteractable;
 
     void Update()
     {
@@ -43,7 +44,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentInteractable != null)
         {
-            currentInteractable.Interact();
+            currentInteractable.Interact(playerController);
         }
     }
 }

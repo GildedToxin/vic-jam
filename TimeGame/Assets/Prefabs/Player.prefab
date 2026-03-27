@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 6252660885454235157}
   - component: {fileID: 8302383730725189938}
   - component: {fileID: 1364514146549161096}
+  - component: {fileID: 5616755488868487757}
   - component: {fileID: 4352341775153965693}
   - component: {fileID: 1482568154418903096}
+  - component: {fileID: 2403794134820514305}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -134,6 +136,8 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 1.5
   cameraTransform: {fileID: 0}
+  playerInteraction: {fileID: 1364514146549161096}
+  playerInventory: {fileID: 5616755488868487757}
 --- !u!114 &1364514146549161096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +155,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   cameraTransform: {fileID: 7746188791890943480}
+  playerController: {fileID: 8302383730725189938}
   currentInteractable: {fileID: 0}
+--- !u!114 &5616755488868487757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465708238761826304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42efa6a01375fc044b5502bd525cf62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  hasGear: 0
+  hasdBook: 0
 --- !u!143 &4352341775153965693
 CharacterController:
   m_ObjectHideFlags: 0
@@ -255,6 +274,33 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!54 &2403794134820514305
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465708238761826304}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5197842366181547271
 GameObject:
   m_ObjectHideFlags: 0
