@@ -13,6 +13,10 @@ public class UserInterfaceManager : MonoBehaviour
     {
         Instance = this;
     }
+    public void Show()
+    {
+        interactPrompt.SetActive(true);
+    }
 
     public void ShowInteract(Interactable interactable)
     {

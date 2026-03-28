@@ -75,6 +75,7 @@ public class BookshelfManager : Lock
         missingBook.SetActive(true);
         FindAnyObjectByType<PlayerController>().isInBookshelf = true;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
+        UserInterfaceManager.Instance.HideInteract();
     }
 
     public void LeaveBookshelf()
@@ -82,11 +83,13 @@ public class BookshelfManager : Lock
         FindAnyObjectByType<PlayerController>().isInBookshelf = false;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToFreeLook();
         highlightBook.SetActive(false);
+        UserInterfaceManager.Instance.Show();
     }
     public void EnterBookshelf()
     {
         FindAnyObjectByType<PlayerController>().isInBookshelf = true;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
         highlightBook.SetActive(true);
+            UserInterfaceManager.Instance.HideInteract();
     }
 }
