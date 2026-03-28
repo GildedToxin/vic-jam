@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     public PlayerInteraction playerInteraction;
     public PlayerInventory playerInventory;
+    public CinemachineCamera freeCamera;
+    private CinemachineInputAxisController cinemachineInput;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
         if (cameraTransform == null)
             cameraTransform = Camera.main.transform;
+
+        cinemachineInput = freeCamera.GetComponent<CinemachineInputAxisController>();
     }
 
     void Update()
@@ -46,6 +51,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        cinemachineInput.enabled = !playerInventory.isInventoryOpen;
     }
 
     public void OnMove(InputAction.CallbackContext context)
