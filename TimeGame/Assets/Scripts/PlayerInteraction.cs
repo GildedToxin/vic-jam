@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     [SerializeField] private Interactable currentInteractable;
+
 
     void Update()
     {
@@ -30,12 +32,17 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     currentInteractable = interactable;
                     Debug.Log("Looking at: " + interactable.name);
+                    UserInterfaceManager.Instance.ShowInteract(interactable);    
                 }
                 return;
             }
         }
 
-        currentInteractable = null;
+        if (currentInteractable != null)
+        {
+            currentInteractable = null;
+            UserInterfaceManager.Instance.HideInteract();
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)

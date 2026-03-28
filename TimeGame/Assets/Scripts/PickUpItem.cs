@@ -8,7 +8,9 @@ public class PickUpItem : Interactable
         base.Interact(player);
         Debug.Log("Picked up " + gameObject.name);
         player.playerInventory.AddItem(InventoryItem);
+
         Destroy(gameObject);
+        UserInterfaceManager.Instance.HideInteract();
     }
 }
 
