@@ -13,7 +13,7 @@ public class Lock : Interactable
         {
             UseItem();
             RemoveItem(player);
-            Debug.Log("Player has the required item. Unlocking...");
+           // Debug.Log("Player has the required item. Unlocking...");
             // Implement unlocking logic here (e.g., open a door, disable a barrier, etc.)
         }
         else
@@ -34,7 +34,7 @@ public class Lock : Interactable
     {
         player.playerInventory.RemoveItem(requiredItem);
     }
-    public void UseItem()
+    public virtual void UseItem()
     {
         // Implement any visual or audio feedback for using the item here (e.g., play a sound, show an animation, etc.)
     }

@@ -31,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
                 if (currentInteractable != interactable)
                 {
                     currentInteractable = interactable;
-                    Debug.Log("Looking at: " + interactable.name);
+                   // Debug.Log("Looking at: " + interactable.name);
                     UserInterfaceManager.Instance.ShowInteract(interactable);    
                 }
                 return;
@@ -47,9 +47,15 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
-
-        if (currentInteractable != null)
+        //if (!context.performed) return;
+        print(context.started);
+        print(playerController.isInBookshelf);
+        if (playerController.isInBookshelf && context.started)
+        {
+            print("E");
+            FindAnyObjectByType<BookshelfManager>().SelectBook();
+        }
+        else if (!playerController.isInBookshelf && currentInteractable != null)
         {
             currentInteractable.Interact(playerController);
         }
