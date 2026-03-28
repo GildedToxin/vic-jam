@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class BookshelfManager : Lock
 
     public GameObject[] books;
 
+    public GameObject[] bookSolution;
+
     public Vector2 input;
 
     public int bookIndex = 0;
@@ -20,8 +23,12 @@ public class BookshelfManager : Lock
 
     public GameObject firstbook;
 
+    bool canUseBookself = true;
+
     public override void Interact(PlayerController player)
     {
+        if(canUseBookself == false) return;
+
         if (missingBook.activeSelf)
             EnterBookshelf();
         else
@@ -55,6 +62,17 @@ public class BookshelfManager : Lock
         }
         firstbook = books[bookIndex];
     }
+    public bool CheckOrder()
+    {
+        int i = 0;
+        foreach(var book in books)
+        {
+            if (book != bookSolution[i])
+                return false;
+            i++;
+        }
+        return true;
+    }
     public void SwapBooks()
     {
         var temp = firstbook.transform.position;
@@ -69,6 +87,14 @@ public class BookshelfManager : Lock
         books[bookIndex] = firstbook;
 
         firstbook = null;
+
+        if (CheckOrder())
+        {
+            gameObject.layer = LayerMask.NameToLayer("Default");
+            canUseBookself = false;
+            LeaveBookshelf();
+            StartCoroutine(ShowGear());
+        }
     }
     public override void UseItem()
     {
@@ -94,8 +120,9 @@ public class BookshelfManager : Lock
             UserInterfaceManager.Instance.HideInteract();
     }
     [ContextMenu ("Show Gear")]
-    public void ShowGear()
+    public IEnumerator ShowGear()
     {
+        yield return new WaitForSeconds(0.5f);
         gear.SetActive(true);
     }
 }
