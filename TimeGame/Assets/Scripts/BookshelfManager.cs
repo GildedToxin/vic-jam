@@ -58,9 +58,11 @@ public class BookshelfManager : Lock
         if(firstbook != null) 
         {
             SwapBooks();
+            UserInterfaceManager.Instance.SetText("Press E to select a book to swap");
             return;
         }
         firstbook = books[bookIndex];
+        UserInterfaceManager.Instance.SetText("Press E to swap book");
     }
     public bool CheckOrder()
     {
@@ -102,7 +104,9 @@ public class BookshelfManager : Lock
         missingBook.SetActive(true);
         FindAnyObjectByType<PlayerController>().isInBookshelf = true;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
-        UserInterfaceManager.Instance.HideInteract();
+        //UserInterfaceManager.Instance.HideInteract();
+        UserInterfaceManager.Instance.SetText("Press E to select a book to swap");
+        UserInterfaceManager.Instance.ShowHideBookshelfText();
     }
 
     public void LeaveBookshelf()
@@ -110,14 +114,17 @@ public class BookshelfManager : Lock
         FindAnyObjectByType<PlayerController>().isInBookshelf = false;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToFreeLook();
         highlightBook.SetActive(false);
-        UserInterfaceManager.Instance.Show();
+        UserInterfaceManager.Instance.SetText("Press E to interact");
+        UserInterfaceManager.Instance.ShowHideBookshelfText();
+        firstbook = null;
     }
     public void EnterBookshelf()
     {
         FindAnyObjectByType<PlayerController>().isInBookshelf = true;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
         highlightBook.SetActive(true);
-            UserInterfaceManager.Instance.HideInteract();
+        UserInterfaceManager.Instance.SetText("Press E to select a book to swap");
+        UserInterfaceManager.Instance.ShowHideBookshelfText();
     }
     [ContextMenu ("Show Gear")]
     public IEnumerator ShowGear()

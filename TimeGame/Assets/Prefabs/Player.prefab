@@ -35,8 +35,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.36, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 6, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4015994370189894509}
   m_Father: {fileID: 0}
@@ -138,6 +138,9 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   playerInteraction: {fileID: 1364514146549161096}
   playerInventory: {fileID: 5616755488868487757}
+  freeCamera: {fileID: 0}
+  moveInput: {x: 0, y: 0}
+  isInBookshelf: 0
 --- !u!114 &1364514146549161096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   items: 
+  InventoryUI: {fileID: 0}
+  isInventoryOpen: 0
+  inventoryItemRotation: {fileID: 0}
 --- !u!143 &4352341775153965693
 CharacterController:
   m_ObjectHideFlags: 0
@@ -268,6 +274,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 351bae21-779e-4917-ab5c-ca20387f041a
     m_ActionName: 'Player/Look[/Mouse/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5616755488868487757}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
+        m_MethodName: OnInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5001de1c-682c-49c7-ab93-2cb7aa175333
+    m_ActionName: 'Player/Inventory[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8302383730725189938}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnEscape
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b0304f15-f379-469a-9b55-5243e784db49
+    m_ActionName: 'Player/Escape[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

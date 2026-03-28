@@ -8,6 +8,9 @@ public class UserInterfaceManager : MonoBehaviour
 
     [SerializeField] private GameObject interactPrompt;
     [SerializeField] private TextMeshProUGUI interactText;
+    [SerializeField] private TextMeshProUGUI bookshelfText;
+
+
 
     private void Awake()
     {
@@ -21,7 +24,7 @@ public class UserInterfaceManager : MonoBehaviour
     public void ShowInteract(Interactable interactable)
     {
         interactPrompt.SetActive(true);
-        interactText.text = interactable.promptText; // or custom per object
+        interactText.text = interactable.PromptText; // or custom per object
     }
     public void SetText(string text)
     {
@@ -30,5 +33,10 @@ public class UserInterfaceManager : MonoBehaviour
     public void HideInteract()
     {
         interactPrompt.SetActive(false);
+    }
+
+    public void ShowHideBookshelfText()
+    {
+        bookshelfText.gameObject.SetActive(!bookshelfText.gameObject.activeSelf);
     }
 }

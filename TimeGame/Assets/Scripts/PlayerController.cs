@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
 
-    private Vector2 moveInput;
+    [SerializeField] private Vector2 moveInput;
     private bool jumpPressed;
 
     [Header("State")]
@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (isInBookshelf)
+        {
+            moveInput = Vector2.zero; // Prevent movement while in bookshelf
+        }
         if (isInBookshelf && context.started)
         {
             FindAnyObjectByType<BookshelfManager>().UpdateInput(context.ReadValue<Vector2>());
