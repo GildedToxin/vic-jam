@@ -33,7 +33,7 @@ public class PlayerInventory : MonoBehaviour
         itemInstance.transform.localScale = itemPrefab.transform.localScale * 0.5f;
         itemInstance.GetComponent<RectTransform>().localPosition -= new Vector3(0, 0, 30);
 
-        GameObject itemInstanceRotation = Instantiate(itemPrefab, InventoryObjectRotationPoint.transform);
+        //GameObject itemInstanceRotation = Instantiate(itemPrefab, InventoryObjectRotationPoint.transform);
         itemCount++;
     }
     public void RemoveItem(InventoryItem inventoryItem)
@@ -41,6 +41,21 @@ public class PlayerInventory : MonoBehaviour
         if (items.Contains(inventoryItem))
         {
             items.Remove(inventoryItem);
+
+            GameObject itemPrefab = itemPrefabs[(int)inventoryItem - 1];
+            for (int i = 0; i < inventorySlots.Count; i++)
+            {
+                if (inventorySlots[i].transform.childCount > 0)
+                {
+                    GameObject child = inventorySlots[i].transform.GetChild(0).gameObject;
+                    if (child.name.Contains(itemPrefab.name))
+                    {
+                        Destroy(child);
+                        itemCount--;
+                        break;
+                    }
+                }
+            }
         }
     }
 
