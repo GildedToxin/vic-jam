@@ -5,14 +5,7 @@ using System.Collections.Generic;
 public class PlayerInventory : MonoBehaviour
 {
     public List<InventoryItem> items = new List<InventoryItem>();
- 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     public void AddItem(InventoryItem inventoryItem)
     {
         items.Add(inventoryItem);
