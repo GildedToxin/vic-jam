@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isInBookshelf)
+            return;
         if (!isPushing)
         {
             HandleMovement();
@@ -55,6 +57,14 @@ public class PlayerController : MonoBehaviour
         else if (!isInBookshelf)
             moveInput = context.ReadValue<Vector2>();
     }
+    public void OnEscape(InputAction.CallbackContext context)
+    {
+        if (isInBookshelf && context.started)
+        {
+            FindAnyObjectByType<BookshelfManager>().LeaveBookshelf();
+        }
+    }
+
 
     public void OnJump(InputAction.CallbackContext context)
     {

@@ -19,6 +19,15 @@ public class BookshelfManager : Lock
 
     public GameObject firstbook;
 
+    public override void Interact(PlayerController player)
+    {
+        if (missingBook.activeSelf)
+            EnterBookshelf();
+        else
+        {
+            base.Interact(player);
+        }
+    }
     public void UpdateInput(Vector2 input)
     {
         this.input = input.normalized;
@@ -38,11 +47,9 @@ public class BookshelfManager : Lock
     }
     public void SelectBook()
     {
-        print("e");
         if(firstbook != null) 
         {
             SwapBooks();
-            print("e2");
             return;
         }
         firstbook = books[bookIndex];
@@ -68,5 +75,18 @@ public class BookshelfManager : Lock
         missingBook.SetActive(true);
         FindAnyObjectByType<PlayerController>().isInBookshelf = true;
         Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
+    }
+
+    public void LeaveBookshelf()
+    {
+        FindAnyObjectByType<PlayerController>().isInBookshelf = false;
+        Camera.main.GetComponent<CameraSwitcher>().SwitchToFreeLook();
+        highlightBook.SetActive(false);
+    }
+    public void EnterBookshelf()
+    {
+        FindAnyObjectByType<PlayerController>().isInBookshelf = true;
+        Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
+        highlightBook.SetActive(true);
     }
 }

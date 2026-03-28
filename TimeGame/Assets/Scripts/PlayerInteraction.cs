@@ -48,11 +48,9 @@ public class PlayerInteraction : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext context)
     {
         //if (!context.performed) return;
-        print(context.started);
-        print(playerController.isInBookshelf);
+
         if (playerController.isInBookshelf && context.started)
         {
-            print("E");
             FindAnyObjectByType<BookshelfManager>().SelectBook();
         }
         else if (!playerController.isInBookshelf && currentInteractable != null)
