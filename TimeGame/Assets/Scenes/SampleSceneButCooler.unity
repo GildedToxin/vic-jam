@@ -274,7 +274,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -300,8 +300,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2534013, y: -0.0000000012202312, z: 3.1964087e-10, w: 0.9673613}
-  m_LocalPosition: {x: -0.95, y: 3.6100001, z: -18.029999}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.588377, y: 2.6799426, z: -8.170468}
   m_LocalScale: {x: 1, y: 0.9127173, z: 1.1745656}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1521,6 +1521,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2157034721040964418, guid: f2ad70181a3ea71499fd385c2bdd8682, type: 3}
   m_PrefabInstance: {fileID: 1957285744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1957285747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8773940317932640947, guid: f2ad70181a3ea71499fd385c2bdd8682, type: 3}
+  m_PrefabInstance: {fileID: 1957285744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957285746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486f33652fa372a4d8cfc4932c910c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1504036242647048145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1881,6 +1892,10 @@ PrefabInstance:
       propertyPath: InventoryUI
       value: 
       objectReference: {fileID: 1957285746}
+    - target: {fileID: 5616755488868487757, guid: ec9233d1d88edf14cbdb213c5562ba9e, type: 3}
+      propertyPath: inventoryItemRotation
+      value: 
+      objectReference: {fileID: 1957285747}
     - target: {fileID: 7746188791890943480, guid: ec9233d1d88edf14cbdb213c5562ba9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.95
