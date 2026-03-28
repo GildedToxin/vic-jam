@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public List<InventoryItem> items = new List<InventoryItem>();
     public GameObject InventoryUI;
     [HideInInspector] public bool isInventoryOpen = false;
+    [SerializeField] private InventoryItemRotation inventoryItemRotation;
 
     public void OnInventory(InputAction.CallbackContext context)
     {
@@ -15,6 +16,8 @@ public class PlayerInventory : MonoBehaviour
         {
             InventoryUI.SetActive(!InventoryUI.activeSelf);
             isInventoryOpen = InventoryUI.activeSelf;
+            if (inventoryItemRotation != null)
+                inventoryItemRotation.itemToRotate.transform.rotation = inventoryItemRotation.startRotation;
         }
     }
     public void AddItem(InventoryItem inventoryItem)

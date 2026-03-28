@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class InventoryItemRotation : MonoBehaviour
 {
-    [SerializeField] GameObject itemToRotate;
+    [SerializeField] public GameObject itemToRotate;
     private bool isDragging = false;
+    [HideInInspector] public Quaternion startRotation;
+
+    void Start()
+    {
+        startRotation = itemToRotate.transform.rotation;
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(0))

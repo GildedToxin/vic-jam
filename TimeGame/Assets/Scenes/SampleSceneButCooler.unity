@@ -1578,6 +1578,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2157034721040964418, guid: f2ad70181a3ea71499fd385c2bdd8682, type: 3}
   m_PrefabInstance: {fileID: 1957285744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1957285747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8773940317932640947, guid: f2ad70181a3ea71499fd385c2bdd8682, type: 3}
+  m_PrefabInstance: {fileID: 1957285744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957285746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486f33652fa372a4d8cfc4932c910c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1504036242647048145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1942,6 +1953,10 @@ PrefabInstance:
       propertyPath: InventoryUI
       value: 
       objectReference: {fileID: 1957285746}
+    - target: {fileID: 5616755488868487757, guid: ec9233d1d88edf14cbdb213c5562ba9e, type: 3}
+      propertyPath: inventoryItemRotation
+      value: 
+      objectReference: {fileID: 1957285747}
     - target: {fileID: 7746188791890943480, guid: ec9233d1d88edf14cbdb213c5562ba9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.95
