@@ -173,9 +173,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   items: 
+  itemPrefabs: []
   InventoryUI: {fileID: 0}
   isInventoryOpen: 0
   inventoryItemRotation: {fileID: 0}
+  inventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  InventoryObjectRotationPoint: {fileID: 0}
 --- !u!143 &4352341775153965693
 CharacterController:
   m_ObjectHideFlags: 0
