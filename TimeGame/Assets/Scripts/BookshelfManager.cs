@@ -9,6 +9,7 @@ public class BookshelfManager : Lock
 {
     public GameObject missingBook;
     public GameObject highlightBook;
+    public GameObject gear;
 
     public GameObject[] books;
 
@@ -91,5 +92,10 @@ public class BookshelfManager : Lock
         Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
         highlightBook.SetActive(true);
             UserInterfaceManager.Instance.HideInteract();
+    }
+    [ContextMenu ("Show Gear")]
+    public void ShowGear()
+    {
+        gear.SetActive(true);
     }
 }

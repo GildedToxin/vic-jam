@@ -7,6 +7,11 @@ public class CameraSwitcher : MonoBehaviour
     public CinemachineCamera interactCam;
 
     [ContextMenu("Switch To Interact Cam")]
+
+    public void Start()
+    {
+               SwitchToFreeLook();
+    }
    public void SwitchToInteractCam()
     {
         interactCam.Priority = 30;
