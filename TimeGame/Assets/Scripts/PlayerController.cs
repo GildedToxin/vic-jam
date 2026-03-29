@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1.5f;
 
     [Header("References")]
+    public Animator animator;
     public Transform cameraTransform;
     public PlayerInteraction playerInteraction;
     public PlayerInventory playerInventory;
@@ -70,7 +71,13 @@ public class PlayerController : MonoBehaviour
             FindAnyObjectByType<ClockManager>().UpdateInput(context.ReadValue<Vector2>());
         }
         else if (!isInBookshelf && !isInClock)
+        {
             moveInput = context.ReadValue<Vector2>();
+            animator.SetBool("IsRunning", true);
+        }
+
+        if (context.canceled)
+            animator.SetBool("IsRunning", false);
     }
     public void OnEscape(InputAction.CallbackContext context)
     {
