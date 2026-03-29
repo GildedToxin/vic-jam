@@ -78,6 +78,10 @@ public class PlayerController : MonoBehaviour
         {
             FindAnyObjectByType<BookshelfManager>().LeaveBookshelf();
         }
+        else if (isInBookshelf && context.started)
+        {
+            FindAnyObjectByType<ClockManager>().LeaveClock();
+        }
     }
 
 
