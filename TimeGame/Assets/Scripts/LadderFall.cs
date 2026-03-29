@@ -30,6 +30,8 @@ public class LadderFall : MonoBehaviour
         StartCoroutine(MoveOverTime());
         LadderTp1.SetActive(true);
         LadderTp2.SetActive(true);
+
+        PlaySound();
     }
 
     private IEnumerator MoveOverTime()
