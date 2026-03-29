@@ -29042,6 +29042,10 @@ PrefabInstance:
       propertyPath: freeCamera
       value: 
       objectReference: {fileID: 87406700}
+    - target: {fileID: 8302383730725189938, guid: ec9233d1d88edf14cbdb213c5562ba9e, type: 3}
+      propertyPath: dialogueScript
+      value: 
+      objectReference: {fileID: 1021490301}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29162,6 +29166,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878934403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021490301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3424462494482874628, guid: 15ac6b121da3497409a8830e03eb97d4, type: 3}
+  m_PrefabInstance: {fileID: 13935344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a471114c0dcb20459deabfefd9ec186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1022321180
 GameObject:
   m_ObjectHideFlags: 0
