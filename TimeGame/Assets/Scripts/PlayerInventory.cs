@@ -29,7 +29,7 @@ public class PlayerInventory : MonoBehaviour
     {
         items.Add(inventoryItem);
         
-        GameObject itemPrefab = itemPrefabs[(int)inventoryItem - 1];
+        GameObject itemPrefab = itemPrefabs[(int)inventoryItem];
         GameObject itemInstance = Instantiate(itemPrefab, InventoryObjectRotationPoint.transform);
         itemInstance.transform.position = InventoryObjectRotationPoint.transform.position;
         UpdateItemDescription(inventoryItem);
@@ -43,7 +43,8 @@ public class PlayerInventory : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-            UpdateItemDescription(inventoryItem);
+
+            itemDescriptionText.text = "";
         }
     }
 
