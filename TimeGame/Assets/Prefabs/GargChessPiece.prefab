@@ -400,11 +400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb7cf070cd13cd4e9cff549201f3f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pushable
-  moveDistance: 2.84
-  moveDistancelr: 0
+  moveDistance: 2.66
+  moveDistancelr: 2.85
   moveDuration: 1.5
-  Cords: {x: 2, y: 3}
-  MaxCords: {x: 5, y: 7}
+  Cords: {x: 4, y: 6}
+  MaxCords: {x: 5, y: 8}
 --- !u!54 &8895846601669550843
 Rigidbody:
   m_ObjectHideFlags: 0
