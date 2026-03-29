@@ -79,6 +79,7 @@ public class ClockManager : Lock
         {
             canUseClockself = false;
             LeaveClock();
+            PromptText = "";
         }
     }
 

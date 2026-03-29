@@ -20,7 +20,8 @@ public class Ferryman : Lock
     {
         coin.SetActive(true);
         fire.SetActive(true);
-        blue.SetActive(true);   
+        blue.SetActive(true);
+        PromptText = "";
     }
     public void OpenJaw()
     {
