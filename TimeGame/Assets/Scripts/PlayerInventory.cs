@@ -31,7 +31,7 @@ public class PlayerInventory : MonoBehaviour
         
         GameObject itemPrefab = itemPrefabs[(int)inventoryItem - 1];
         GameObject itemInstance = Instantiate(itemPrefab, InventoryObjectRotationPoint.transform);
-        itemInstance.GetComponent<RectTransform>().localPosition = InventoryObjectRotationPoint.transform.localPosition;
+        itemInstance.transform.position = InventoryObjectRotationPoint.transform.position;
         UpdateItemDescription(inventoryItem);
     }
     public void RemoveItem(InventoryItem inventoryItem)
@@ -39,6 +39,10 @@ public class PlayerInventory : MonoBehaviour
         if (items.Contains(inventoryItem))
         {
             items.Remove(inventoryItem);
+            foreach (Transform child in InventoryObjectRotationPoint.transform)
+            {
+                Destroy(child.gameObject);
+            }
             UpdateItemDescription(inventoryItem);
         }
     }
