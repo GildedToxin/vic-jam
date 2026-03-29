@@ -20,6 +20,6 @@ public class MainMenuController : MonoBehaviour
     }
     public void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LibbyNew");
     }
 }
