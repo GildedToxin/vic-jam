@@ -64,6 +64,7 @@ public class FootstepSounds : MonoBehaviour
     {
         if (source == null || clips == null || clips.Length == 0) return;
 
+        source.pitch = Random.Range(0.95f, 1.05f);
         AudioClip clip = clips[Random.Range(0, clips.Length)];
         source.PlayOneShot(clip);
     }

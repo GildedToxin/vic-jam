@@ -18,6 +18,8 @@ public class Pushable : MonoBehaviour
     [SerializeField] private Vector2 Cords;
     [SerializeField] private Vector2 MaxCords;
 
+    public AudioSource audioSource;
+
     public void Push(Direction pushDirection, PlayerController player)
     {
         print("start");
@@ -58,7 +60,7 @@ public class Pushable : MonoBehaviour
         print("start");
         StartCoroutine(MoveToTarget(player, dir, dist));
 
-     
+        PlayPushSound(audioSource);
 
     }
     private IEnumerator MoveToTarget(PlayerController player, Vector3 dir, float dist)
@@ -127,6 +129,15 @@ public class Pushable : MonoBehaviour
         {
             FindAnyObjectByType<LadderFall>().MoveLadder();
         }
+
+    }
+
+    private void PlayPushSound(AudioSource source)
+    {
+        if (source == null) return;
+
+        source.pitch = Random.Range(0.95f, 1.05f); 
+        source.Play();
 
     }
 }
