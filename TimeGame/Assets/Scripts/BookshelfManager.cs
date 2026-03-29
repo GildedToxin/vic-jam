@@ -32,7 +32,10 @@ public class BookshelfManager : Lock
     private bool isFalling = false;
     public override void Interact(PlayerController player)
     {
-        if(canUseBookself == false) return;
+        if(canUseBookself == false) 
+        {
+            return;
+        }
 
         if (missingBook.activeSelf)
             EnterBookshelf();
