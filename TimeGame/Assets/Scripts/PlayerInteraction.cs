@@ -60,6 +60,7 @@ public class PlayerInteraction : MonoBehaviour
         else if (!playerController.isInBookshelf && !playerController.isInClock && currentInteractable != null)
         {
             currentInteractable.Interact(playerController);
+            playerController.animator.SetTrigger("Interact");
         }
     }
 }
