@@ -15,8 +15,23 @@ public class EndGame : Interactable
     }
     public override void Interact(PlayerController player)
     {
-        if(FindAnyObjectByType<InvisableMaze>().GetCanCompleteRoom())
-            print("Game End");
+        if (FindAnyObjectByType<InvisableMaze>().GetCanCompleteRoom())
+        {
+            foreach (var door in FindObjectsByType<DoorScript>())
+            {
+                door.RotateDoor();
+            }
+            FindAnyObjectByType<FadeToBlack>().FadeOut(); // fade to black
+        }
     }
+    [ContextMenu("test")]
+    public void test()
+    {
+            foreach (var door in FindObjectsByType<DoorScript>())
+            {
+                door.RotateDoor();
+            }
+    }
+  
     
 }
