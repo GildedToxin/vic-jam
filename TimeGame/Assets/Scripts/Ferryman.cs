@@ -11,7 +11,12 @@ public class Ferryman : Lock
 
     public AudioSource fireLoopSource;
     public AudioSource fireLightSource;
-    
+
+    private void Start()
+    {
+        PromptText = "";
+    }
+
     public override void Interact(PlayerController player)
     {
         base.Interact(player);
@@ -29,6 +34,7 @@ public class Ferryman : Lock
     }
     public void OpenJaw()
     {
+        PromptText = "Press E to give the coin";
         openJaw.SetActive(true);
         closeJaw.SetActive(false);
     }

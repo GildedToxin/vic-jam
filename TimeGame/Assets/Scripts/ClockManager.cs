@@ -18,9 +18,19 @@ public class ClockManager : Lock
     public bool mouthSolved = false;
     public bool graveSovled = false;
 
+    
+
     private void Start()
     {
         currentHand = hourHand;
+        PromptText = "";
+    }
+    public void Update()
+    {
+        if (FindAnyObjectByType<PlayerController>().playerInventory.items.Contains(InventoryItem.Gear))
+        {
+            PromptText = "Press E to adjust the clock";
+        }
     }
     public override void Interact(PlayerController player)
     {

@@ -13,7 +13,7 @@ public class CameraSwitcher : MonoBehaviour
 
     public void Start()
     {
-               SwitchToFreeLook();
+        SwitchToSideRoom();
     }
    public void SwitchToInteractCam()
     {
