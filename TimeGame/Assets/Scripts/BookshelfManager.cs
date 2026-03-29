@@ -25,6 +25,12 @@ public class BookshelfManager : Lock
 
     bool canUseBookself = true;
 
+
+    [SerializeField] private float fallDistance = 2f;
+    [SerializeField] private float fallDuration = 0.5f;
+    [SerializeField] private AnimationCurve fallCurve; // ease-in/out
+
+    private bool isFalling = false;
     public override void Interact(PlayerController player)
     {
         if(canUseBookself == false) return;
@@ -128,9 +134,39 @@ public class BookshelfManager : Lock
         UserInterfaceManager.Instance.ShowHideBookshelfText();
     }
     [ContextMenu ("Show Gear")]
+    public void ShowTheGear()
+    {
+        StartCoroutine(ShowGear());
+    }
     public IEnumerator ShowGear()
     {
-        yield return new WaitForSeconds(0.5f);
         gear.SetActive(true);
+        isFalling = true;
+
+        Vector3 startPos = gear.transform.position;
+        Vector3 endPos = startPos + Vector3.back * fallDistance;
+
+        float time = 0f;
+
+        while (time < fallDuration)
+        {
+            float t = time / fallDuration;
+
+            // Apply easing
+            float curveT = fallCurve != null ? fallCurve.Evaluate(t) : t;
+
+            gear.transform.position = Vector3.Lerp(startPos, endPos, curveT);
+
+            gear.transform.Rotate(new Vector3(0, 0, 90f) * Time.deltaTime);
+
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        gear.transform.position = endPos;
+
+        isFalling = false;
+        gear.GetComponent<BoxCollider>().isTrigger = false; // Enable collider after falling
     }
 }
