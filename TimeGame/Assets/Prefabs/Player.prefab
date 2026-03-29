@@ -157,6 +157,7 @@ MonoBehaviour:
   - {fileID: 4224516457850899031, guid: 9e9caeccc39b1a3418218ce4bfa08350, type: 3}
   - {fileID: 4855694304204651413, guid: 5ca6e5ffc4a9a524ba105c08b4cbf154, type: 3}
   - {fileID: 1688257202611234277, guid: dca223eaed62491499e3efbd5cdd704e, type: 3}
+  - {fileID: 543100324448649377, guid: 9e6a853382438ac4ca5e5b2e1b55cde4, type: 3}
   InventoryUI: {fileID: 0}
   isInventoryOpen: 0
   inventoryItemRotation: {fileID: 0}
