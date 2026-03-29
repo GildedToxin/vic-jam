@@ -72,6 +72,7 @@ public class Pushable : MonoBehaviour
         float elapsed = 0f;
 
         player.SetIsPushing(true);
+        player.animator.SetTrigger("Push");
         while (elapsed < moveDuration)
         {
             elapsed += Time.deltaTime;
