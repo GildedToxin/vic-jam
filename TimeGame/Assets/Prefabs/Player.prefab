@@ -176,33 +176,13 @@ MonoBehaviour:
   items: 
   itemPrefabs:
   - {fileID: 4224516457850899031, guid: 9e9caeccc39b1a3418218ce4bfa08350, type: 3}
-  - {fileID: 1688257202611234277, guid: dca223eaed62491499e3efbd5cdd704e, type: 3}
   - {fileID: 4855694304204651413, guid: 5ca6e5ffc4a9a524ba105c08b4cbf154, type: 3}
+  - {fileID: 1688257202611234277, guid: dca223eaed62491499e3efbd5cdd704e, type: 3}
   InventoryUI: {fileID: 0}
   isInventoryOpen: 0
   inventoryItemRotation: {fileID: 0}
-  inventorySlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   InventoryObjectRotationPoint: {fileID: 0}
+  itemDescriptionText: {fileID: 0}
 --- !u!143 &4352341775153965693
 CharacterController:
   m_ObjectHideFlags: 0
