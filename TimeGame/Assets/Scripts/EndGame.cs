@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EndGame : Interactable
 {
+    public AudioClip puzzel;
     private void Update()
     {
         if (FindAnyObjectByType<InvisableMaze>().GetCanCompleteRoom())
@@ -19,8 +20,10 @@ public class EndGame : Interactable
         {
             foreach (var door in FindObjectsByType<DoorScript>())
             {
+                
                 door.RotateDoor();
             }
+            AudioPool.Instance.PlayClip2D(puzzel, 1f);
             FindAnyObjectByType<FadeToBlack>().FadeOut(); // fade to black
              // quit the application after fading out
         }

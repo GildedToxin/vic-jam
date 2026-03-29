@@ -6289,6 +6289,7 @@ MonoBehaviour:
   blue: {fileID: 2124896108}
   fireLoopSource: {fileID: 1331089910}
   fireLightSource: {fileID: 337349879}
+  puzzel: {fileID: 8300000, guid: e8f7257d1d45d8948a8e843a91e0b1b0, type: 3}
 --- !u!4 &220825102
 Transform:
   m_ObjectHideFlags: 0
@@ -12120,7 +12121,8 @@ PrefabInstance:
       value: InventoryUIStuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8187276464575462165, guid: f2ad70181a3ea71499fd385c2bdd8682, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ad70181a3ea71499fd385c2bdd8682, type: 3}
@@ -21224,6 +21226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d611d5c2b0a5349b66dc37cea6f0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  puzzel: {fileID: 8300000, guid: e8f7257d1d45d8948a8e843a91e0b1b0, type: 3}
 --- !u!65 &776013010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35709,6 +35712,7 @@ MonoBehaviour:
   audioSource: {fileID: 1839643223}
   canPush: 1
   hasFallen: 0
+  Puzzel: {fileID: 8300000, guid: e8f7257d1d45d8948a8e843a91e0b1b0, type: 3}
 --- !u!65 &1223707590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41009,6 +41013,7 @@ MonoBehaviour:
   bookIndex: 0
   firstbook: {fileID: 0}
   source: {fileID: 585785498}
+  puzzel: {fileID: 8300000, guid: e8f7257d1d45d8948a8e843a91e0b1b0, type: 3}
   fallDistance: 0.25
   fallDuration: 2
   fallCurve:
@@ -43340,6 +43345,7 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   mouthSolved: 0
   graveSovled: 0
+  puzzel: {fileID: 8300000, guid: e8f7257d1d45d8948a8e843a91e0b1b0, type: 3}
 --- !u!82 &1522885046
 AudioSource:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class Pushable : MonoBehaviour
 
     public bool hasFallen = false;
 
+    public AudioClip Puzzel;
     public void Push(Direction pushDirection, PlayerController player)
     {
         print("start");
@@ -135,6 +136,7 @@ public class Pushable : MonoBehaviour
         {
             FindAnyObjectByType<LadderFall>().MoveLadder();
             hasFallen = true;
+            AudioPool.Instance.PlayClip2D(Puzzel, 1f);
         }
         canPush = true;
     }
