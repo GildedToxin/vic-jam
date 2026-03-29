@@ -61,9 +61,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable.Interact(playerController);
             playerController.animator.SetTrigger("Interact");
-            playerController.dialogueScript.currentDialogue = Dialogue.PickupItem;
-            playerController.dialogueScript.DisplayDialogue();
-            StartCoroutine(playerController.dialogueScript.HideDialogueAfterDelay(2f));
         }
     }
 }
