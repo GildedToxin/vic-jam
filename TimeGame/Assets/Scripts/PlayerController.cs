@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             FindAnyObjectByType<BookshelfManager>().LeaveBookshelf();
         }
-        else if (isInBookshelf && context.started)
+        else if (isInClock && context.started)
         {
             FindAnyObjectByType<ClockManager>().LeaveClock();
         }
