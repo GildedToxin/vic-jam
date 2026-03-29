@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Rendering;
-using static UnityEngine.Rendering.DebugUI;
+
 
 public class BookshelfManager : Lock
 {

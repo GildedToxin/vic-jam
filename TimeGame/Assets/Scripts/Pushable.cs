@@ -22,6 +22,8 @@ public class Pushable : MonoBehaviour
 
     public bool canPush = true;
 
+    public bool hasFallen = false;
+
     public void Push(Direction pushDirection, PlayerController player)
     {
         print("start");
@@ -129,9 +131,10 @@ public class Pushable : MonoBehaviour
         player.ResetCharacterMaterial();
         print("move");
 
-        if (Cords.x == 2 && Cords.y == 4)
+        if (Cords.x == 2 && Cords.y == 4 && !hasFallen)
         {
             FindAnyObjectByType<LadderFall>().MoveLadder();
+            hasFallen = true;
         }
         canPush = true;
     }
