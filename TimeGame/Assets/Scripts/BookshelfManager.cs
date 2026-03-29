@@ -25,6 +25,8 @@ public class BookshelfManager : Lock
 
     bool canUseBookself = true;
 
+    public AudioSource source;
+
 
     [SerializeField] private float fallDistance = 2f;
     [SerializeField] private float fallDuration = 0.5f;
@@ -69,6 +71,7 @@ public class BookshelfManager : Lock
         }
         firstbook = books[bookIndex];
         UserInterfaceManager.Instance.SetText("Press E to swap book");
+        PlaySound();
     }
     public bool CheckOrder()
     {
@@ -168,5 +171,13 @@ public class BookshelfManager : Lock
 
         isFalling = false;
         gear.GetComponent<BoxCollider>().isTrigger = false; // Enable collider after falling
+    }
+
+    private void PlaySound()
+    {
+        if (source != null)
+        {
+            source.Play();
+        }
     }
 }

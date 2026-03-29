@@ -9,6 +9,8 @@ public class Ferryman : Lock
     public GameObject fire;
     public GameObject blue;
 
+    public AudioSource fireLoopSource;
+    public AudioSource fireLightSource;
     
     public override void Interact(PlayerController player)
     {
@@ -22,10 +24,18 @@ public class Ferryman : Lock
         fire.SetActive(true);
         blue.SetActive(true);
         PromptText = "";
+
+        PlaySound();
     }
     public void OpenJaw()
     {
         openJaw.SetActive(true);
         closeJaw.SetActive(false);
+    }
+
+    public void PlaySound()
+    {
+        fireLightSource.Play();
+        fireLoopSource.Play();
     }
 }
