@@ -24,7 +24,7 @@ public class DialogueScript : MonoBehaviour
                 dialogueText.text = "A grave, the writing is worn down, best leave it be.";
                 break;
             case Dialogue.GraveReal:
-                dialogueText.text = "The Writing here is legible: 'RIP GERALD DIED AS HE LIVED, TOD: 5:50";
+                dialogueText.text = "The Writing here is legible: 'RIP GERALD DIED AS HE LIVED, TOD: 5:50'";
                 break;
             case Dialogue.Bookshelf:
                 dialogueText.text = "It's a bookshelf, the books are really dusty.";
