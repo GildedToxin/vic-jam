@@ -19,6 +19,8 @@ public class Ferryman : Lock
     public override void UseItem()
     {
         coin.SetActive(true);
+        fire.SetActive(true);
+        blue.SetActive(true);   
     }
     public void OpenJaw()
     {
