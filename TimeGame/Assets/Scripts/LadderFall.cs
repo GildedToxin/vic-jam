@@ -14,6 +14,8 @@ public class LadderFall : MonoBehaviour
     public GameObject LadderTp1;
     public GameObject LadderTp2;
 
+    public AudioSource source;
+
     private void Start()
     {
         startPosition = transform.position;
@@ -28,6 +30,8 @@ public class LadderFall : MonoBehaviour
         StartCoroutine(MoveOverTime());
         LadderTp1.SetActive(true);
         LadderTp2.SetActive(true);
+
+        PlaySound();
     }
 
     private IEnumerator MoveOverTime()
@@ -46,5 +50,13 @@ public class LadderFall : MonoBehaviour
 
         // Ensure final position is exact
         transform.position = targetPosition;
+    }
+
+    private void PlaySound()
+    {
+        if (source != null)
+        {
+            source.Play();
+        }
     }
 }
