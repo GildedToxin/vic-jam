@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [Header("State")]
     private bool isPushing = false;
     public bool isInBookshelf = false;
+    public bool isInClock = false;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isInBookshelf)
+        if (isInBookshelf || isInClock)
             return;
         if (!isPushing)
         {
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (isInBookshelf)
+        if (isInBookshelf || isInClock)
         {
             moveInput = Vector2.zero; // Prevent movement while in bookshelf
         }
@@ -64,7 +65,11 @@ public class PlayerController : MonoBehaviour
         {
             FindAnyObjectByType<BookshelfManager>().UpdateInput(context.ReadValue<Vector2>());
         }
-        else if (!isInBookshelf)
+        else if (isInClock && context.started)
+        {
+            FindAnyObjectByType<ClockManager>().UpdateInput(context.ReadValue<Vector2>());
+        }
+        else if (!isInBookshelf && !isInClock)
             moveInput = context.ReadValue<Vector2>();
     }
     public void OnEscape(InputAction.CallbackContext context)

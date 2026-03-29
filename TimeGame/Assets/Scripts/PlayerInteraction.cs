@@ -53,7 +53,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             FindAnyObjectByType<BookshelfManager>().SelectBook();
         }
-        else if (!playerController.isInBookshelf && currentInteractable != null)
+        if (playerController.isInClock && context.started)
+        {
+            FindAnyObjectByType<ClockManager>().SwapHands();
+        }
+        else if (!playerController.isInBookshelf && !playerController.isInClock && currentInteractable != null)
         {
             currentInteractable.Interact(playerController);
         }
