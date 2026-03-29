@@ -40656,6 +40656,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LadderFall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3934345629197366099, guid: bee7af2ce0a7be3419995fef16172897, type: 3}
+      propertyPath: LadderTp1
+      value: 
+      objectReference: {fileID: 334143094}
+    - target: {fileID: 3934345629197366099, guid: bee7af2ce0a7be3419995fef16172897, type: 3}
+      propertyPath: LadderTp2
+      value: 
+      objectReference: {fileID: 405784204}
     - target: {fileID: 6729247365627133574, guid: bee7af2ce0a7be3419995fef16172897, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.32
