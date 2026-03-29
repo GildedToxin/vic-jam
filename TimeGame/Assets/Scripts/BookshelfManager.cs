@@ -107,6 +107,7 @@ public class BookshelfManager : Lock
         //UserInterfaceManager.Instance.HideInteract();
         UserInterfaceManager.Instance.SetText("Press E to select a book to swap");
         UserInterfaceManager.Instance.ShowHideBookshelfText();
+        highlightBook.SetActive(true);
     }
 
     public void LeaveBookshelf()
