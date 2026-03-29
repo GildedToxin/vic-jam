@@ -84,6 +84,7 @@ public class Pushable : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, targetPosition, t);
             player.transform.position = Vector3.Lerp(startPosPlayer, targetPositionPlayer, t);
             player.transform.rotation = Quaternion.LookRotation(dir);
+            player.SwapCharacterMaterial();
             yield return null;
         }
 
@@ -92,6 +93,7 @@ public class Pushable : MonoBehaviour
 
 
         player.SetIsPushing(false);
+        player.ResetCharacterMaterial();
         print("move");
 
         if (Cords.x == 2 && Cords.y == 4)

@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1.5f;
 
     [Header("References")]
+    public Material normalMaterial;
+    public Material pushingMaterial;
+    public GameObject model;
     public Animator animator;
     public Transform cameraTransform;
     public PlayerInteraction playerInteraction;
@@ -138,5 +141,15 @@ public class PlayerController : MonoBehaviour
     public void SetIsPushing(bool pushing)
     {
      isPushing = pushing;
+    }
+
+    public void SwapCharacterMaterial()
+    {
+        model.GetComponent<Renderer>().material = pushingMaterial;
+    }
+
+    public void ResetCharacterMaterial()
+    {
+        model.GetComponent<Renderer>().material = normalMaterial;
     }
 }
