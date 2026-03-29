@@ -18,9 +18,6 @@ public class Lock : Interactable
         }
         else
         {
-            player.dialogueScript.currentDialogue = Dialogue.Bookshelf;
-            player.dialogueScript.DisplayDialogue();
-            StartCoroutine(player.dialogueScript.HideDialogueAfterDelay(2f));
             Debug.Log("Player does not have the required item. Cannot unlock.");
         }
     }
