@@ -33,6 +33,6 @@ public class DoorScript : MonoBehaviour
 
         obj.rotation = targetRot;
 
-      //  Application.Quit();
+      Application.Quit();
     }
 }

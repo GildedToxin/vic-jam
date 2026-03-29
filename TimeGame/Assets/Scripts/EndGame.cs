@@ -22,15 +22,13 @@ public class EndGame : Interactable
                 door.RotateDoor();
             }
             FindAnyObjectByType<FadeToBlack>().FadeOut(); // fade to black
+             // quit the application after fading out
         }
     }
     [ContextMenu("test")]
     public void test()
     {
-            foreach (var door in FindObjectsByType<DoorScript>())
-            {
-                door.RotateDoor();
-            }
+        FindAnyObjectByType<FadeToBlack>().FadeOut(); // fade to black
     }
   
     
