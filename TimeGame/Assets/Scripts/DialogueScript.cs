@@ -15,7 +15,7 @@ public class DialogueScript : MonoBehaviour
         
     }
 
-    public void SwapDialogue()
+    public void SwapDialogue(Dialogue dialogue)
     {
         // switch case to set dialogueText based on currentDialogue
         switch (currentDialogue)
@@ -47,11 +47,10 @@ public class DialogueScript : MonoBehaviour
         }
     }
 
-    public void DisplayDialogue(Dialogue dialogue)
+    public void DisplayDialogue()
     {
         dialogueUI.SetActive(true);
-        currentDialogue = dialogue;
-        SwapDialogue();
+        SwapDialogue(currentDialogue);
     }
 
     public IEnumerator HideDialogueAfterDelay(float delay)
