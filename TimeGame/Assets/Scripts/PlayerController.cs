@@ -82,6 +82,10 @@ public class PlayerController : MonoBehaviour
         {
             FindAnyObjectByType<ClockManager>().LeaveClock();
         }
+        else if (!isInBookshelf && !isInClock && context.started)
+        {
+            FindAnyObjectByType<PauseMenuManager>().TogglePauseMenu();
+        }
     }
 
 
