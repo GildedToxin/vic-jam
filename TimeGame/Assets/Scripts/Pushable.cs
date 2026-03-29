@@ -91,6 +91,33 @@ public class Pushable : MonoBehaviour
         transform.position = targetPosition; 
         player.transform.position = targetPositionPlayer;
 
+        StartCoroutine(LerpBack(player, dir, .25f, .25f));
+
+
+      
+    }
+
+    IEnumerator LerpBack(PlayerController player, Vector3 dir, float distance, float duration)
+    {
+        Vector3 startPos = player.transform.position;
+        Vector3 targetPos = startPos - dir.normalized * distance;
+
+        float time = 0f;
+
+        while (time < duration)
+        {
+            float t = time / duration;
+
+            // Ease in/out (optional but feels WAY better)
+            t = Mathf.SmoothStep(0f, 1f, t);
+
+            player.transform.position = Vector3.Lerp(startPos, targetPos, t);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        player.transform.position = targetPos; // ensure exact final pos
 
         player.SetIsPushing(false);
         player.ResetCharacterMaterial();
@@ -100,5 +127,6 @@ public class Pushable : MonoBehaviour
         {
             FindAnyObjectByType<LadderFall>().MoveLadder();
         }
+
     }
 }
