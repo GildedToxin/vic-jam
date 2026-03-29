@@ -15,6 +15,9 @@ public class ClockManager : Lock
 
     public Vector2 input;
 
+    public bool mouthSolved = false;
+    public bool graveSovled = false;
+
     private void Start()
     {
         currentHand = hourHand;
@@ -50,6 +53,31 @@ public class ClockManager : Lock
         if (hand == null) return;
         var degreestoRotate = 30f * dir; // Rotate 30 degrees per hour, multiplied by direction
         hand.transform.rotation = Quaternion.Euler(0, 0, hand.transform.rotation.eulerAngles.z + degreestoRotate);
+
+        float minuteZ = minuteHand.transform.eulerAngles.z;
+        float hourZ = hourHand.transform.eulerAngles.z;
+
+        bool mouthMinute = Mathf.Abs(Mathf.DeltaAngle(minuteZ, 300f)) < 2f;
+        bool mouthHour = Mathf.Abs(Mathf.DeltaAngle(hourZ, 150f)) < 2f;
+
+        if (mouthMinute && mouthHour)
+        {
+            graveSovled = true;
+        }
+
+        bool graveMinute = Mathf.Abs(Mathf.DeltaAngle(minuteZ, 90f)) < 2f;
+        bool graveHour = Mathf.Abs(Mathf.DeltaAngle(hourZ, 0f)) < 2f;
+
+        if (graveMinute && graveHour)
+        {
+            mouthSolved = true;
+        }
+
+        if (graveSovled && mouthSolved)
+        {
+            canUseClockself = false;
+            LeaveClock();
+        }
     }
 
     public void EnterClock() {
@@ -76,11 +104,12 @@ public class ClockManager : Lock
 
     public override void UseItem()
     {
-        FindAnyObjectByType<PlayerController>().isInBookshelf = true;
-        Camera.main.GetComponent<CameraSwitcher>().SwitchToInteractCam();
+        FindAnyObjectByType<PlayerController>().isInClock = true;
+        Camera.main.GetComponent<CameraSwitcher>().SwitchToClock();
         //UserInterfaceManager.Instance.HideInteract();
-        UserInterfaceManager.Instance.SetText("Press E to select a book to swap");
+        UserInterfaceManager.Instance.SetText("Press E to change hands");
         UserInterfaceManager.Instance.ShowHideBookshelfText();
+        gearInPlace = true;
     }
 
     public void UpdateInput(Vector2 input)
