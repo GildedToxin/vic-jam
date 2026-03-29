@@ -12,6 +12,8 @@ public class Ferryman : Lock
     public AudioSource fireLoopSource;
     public AudioSource fireLightSource;
 
+    public AudioClip puzzel;
+
     private void Start()
     {
         PromptText = "";
@@ -31,6 +33,7 @@ public class Ferryman : Lock
         PromptText = "";
 
         PlaySound();
+        AudioPool.Instance.PlayClip2D(puzzel, 1f);
     }
     public void OpenJaw()
     {

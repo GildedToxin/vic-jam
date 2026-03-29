@@ -17,8 +17,8 @@ public class ClockManager : Lock
 
     public bool mouthSolved = false;
     public bool graveSovled = false;
+    public AudioClip puzzel;
 
-    
 
     private void Start()
     {
@@ -70,19 +70,23 @@ public class ClockManager : Lock
         bool mouthMinute = Mathf.Abs(Mathf.DeltaAngle(minuteZ, 300f)) < 2f;
         bool mouthHour = Mathf.Abs(Mathf.DeltaAngle(hourZ, 150f)) < 2f;
 
-        if (mouthMinute && mouthHour)
+        if (mouthMinute && mouthHour && !graveSovled)
         {
             graveSovled = true;
             FindAnyObjectByType<GraveStone>().MoveGrave();
+
+            AudioPool.Instance.PlayClip2D(puzzel, 1f);
         }
 
         bool graveMinute = Mathf.Abs(Mathf.DeltaAngle(minuteZ, 90f)) < 2f;
         bool graveHour = Mathf.Abs(Mathf.DeltaAngle(hourZ, 0f)) < 2f;
 
-        if (graveMinute && graveHour)
+        if (graveMinute && graveHour && mouthSolved)
         {
             mouthSolved = true;
             FindAnyObjectByType<Ferryman>().OpenJaw();
+
+            AudioPool.Instance.PlayClip2D(puzzel, 1f);
         }
 
         if (graveSovled && mouthSolved)

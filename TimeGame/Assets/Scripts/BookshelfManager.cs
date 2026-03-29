@@ -24,6 +24,7 @@ public class BookshelfManager : Lock
 
     public AudioSource source;
 
+    public AudioClip puzzel;
 
     [SerializeField] private float fallDistance = 2f;
     [SerializeField] private float fallDuration = 0.5f;
@@ -101,6 +102,7 @@ public class BookshelfManager : Lock
 
         if (CheckOrder())
         {
+            AudioPool.Instance.PlayClip2D(puzzel, 1f);
             gameObject.layer = LayerMask.NameToLayer("Default");
             canUseBookself = false;
             LeaveBookshelf();
