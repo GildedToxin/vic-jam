@@ -7,44 +7,65 @@ using System.Collections;
 public class Pushable : MonoBehaviour
 {
 
-    [SerializeField] private Vector3 moveDistance;
+    [SerializeField] private float moveDistance;
     [SerializeField] private float moveDuration = 2f;
 
-    [SerializeField] private bool isPushed;
-    [SerializeField] private bool isBiDirectional;
 
 
-    [SerializeField] private BoxCollider rightBox;
-    [SerializeField] private BoxCollider leftBox;
 
-    public void OnTriggerEnter(Collider other)
+
+    [SerializeField] private Vector2 Cords;
+    [SerializeField] private Vector2 MaxCords;
+
+    public void Push(Direction pushDirection, PlayerController player)
     {
-        if (other.gameObject.GetComponent<PlayerController>())
+        print("start");
+        if (pushDirection == Direction.Left && Cords.x == 0)
+            return;
+        if (pushDirection == Direction.Right && Cords.x == MaxCords.x)
+            return;
+        if (pushDirection == Direction.Down && Cords.y == 0)
+            return;
+        if (pushDirection == Direction.Up && Cords.y == MaxCords.y)
+            return;
+
+        var dir = Vector3.zero;
+
+        if (pushDirection == Direction.Left)
         {
-            StartCoroutine(MoveToTarget(other.gameObject.GetComponent<PlayerController>()));
-            if (isBiDirectional)
-                SwapColliderSide();
-            else
-                StopColliders();
+            dir = new Vector3(0, 0, -1);
+            Cords.x -= 1;
         }
+        else if (pushDirection == Direction.Right)
+        {
+            dir = new Vector3(0, 0, 1);
+            Cords.x += 1;
+        }
+        else if (pushDirection == Direction.Up)
+        {
+            dir = new Vector3(-1, 0, 0);
+            Cords.y += 1;
+        }
+        else if (pushDirection == Direction.Down)
+        {
+            dir = new Vector3(1, 0, 0);
+            Cords.y -= 1;
+        }
+
+
+
+        print("start");
+        StartCoroutine(MoveToTarget(player, dir));
+
+
     }
-    private void StopColliders()
-    {
-        rightBox.gameObject.SetActive(false);
-        leftBox.gameObject.SetActive(false);
-    }
-    private void SwapColliderSide()
-    {
-        rightBox.gameObject.SetActive(!rightBox.gameObject.activeSelf);
-        leftBox.gameObject.SetActive(!leftBox.gameObject.activeSelf);
-    }
-    private IEnumerator MoveToTarget(PlayerController player)
+    private IEnumerator MoveToTarget(PlayerController player, Vector3 dir)
     {
         Vector3 startPos = transform.position;
-        var targetPosition = isBiDirectional && isPushed ? transform.position - moveDistance : transform.position + moveDistance;
+        var targetPosition = transform.position + (dir * moveDistance);
 
         Vector3 startPosPlayer = player.transform.position;
-        var targetPositionPlayer = isBiDirectional && isPushed ? player.transform.position - moveDistance : player.transform.position + moveDistance;
+        var targetPositionPlayer = player.transform.position + (dir * moveDistance);
 
         float elapsed = 0f;
 
@@ -65,7 +86,8 @@ public class Pushable : MonoBehaviour
         transform.position = targetPosition; 
         player.transform.position = targetPositionPlayer;
 
-        isPushed = !isPushed;
+
         player.SetIsPushing(false);
+        print("move");
     }
 }
