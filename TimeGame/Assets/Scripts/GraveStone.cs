@@ -11,6 +11,8 @@ public class GraveStone : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 targetPosition;
 
+    public GameObject coin;
+
     private void Start()
     {
         startPosition = transform.position;
@@ -40,5 +42,7 @@ public class GraveStone : MonoBehaviour
 
         // Ensure final position is exact
         transform.position = targetPosition;
+
+        coin.SetActive(true);
     }
 }
