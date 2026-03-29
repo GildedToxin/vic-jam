@@ -41,14 +41,8 @@ public class DialogueScript : MonoBehaviour
             case Dialogue.Gargoyle:
                 dialogueText.text = "A gargoyle wielding a sword, its pointing in a direction.";
                 break;
-            case Dialogue.CoinPickup:
-                dialogueText.text = "You picked up a coin.";
-                break;
-            case Dialogue.BookPickup:
-                dialogueText.text = "You picked up a book.";
-                break;
-            case Dialogue.GearPickup:
-                dialogueText.text = "You picked up a gear.";
+            case Dialogue.PickupItem:
+                dialogueText.text = "You picked up an item.";
                 break;
         }
     }
@@ -75,7 +69,5 @@ public enum Dialogue
         Clock,
         Statue,
         Gargoyle,
-        CoinPickup,
-        BookPickup,
-        GearPickup,
+        PickupItem,
     }
