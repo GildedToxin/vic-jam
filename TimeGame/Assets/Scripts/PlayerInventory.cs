@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class PlayerInventory : MonoBehaviour
     public GameObject InventoryUI;
     [HideInInspector] public bool isInventoryOpen = false;
     [SerializeField] private InventoryItemRotation inventoryItemRotation;
-    [SerializeField] private List<GameObject> inventorySlots = new List<GameObject>();
-    private int itemCount = 0;
     [SerializeField] private GameObject InventoryObjectRotationPoint;
+    public TextMeshProUGUI itemDescriptionText;
+
 
     public void OnInventory(InputAction.CallbackContext context)
     {
@@ -29,33 +30,16 @@ public class PlayerInventory : MonoBehaviour
         items.Add(inventoryItem);
         
         GameObject itemPrefab = itemPrefabs[(int)inventoryItem - 1];
-        GameObject itemInstance = Instantiate(itemPrefab, inventorySlots[itemCount].transform);
-        itemInstance.transform.localScale = itemPrefab.transform.localScale * 0.5f;
-        itemInstance.GetComponent<RectTransform>().localPosition -= new Vector3(0, 0, 30);
-
-        //GameObject itemInstanceRotation = Instantiate(itemPrefab, InventoryObjectRotationPoint.transform);
-        itemCount++;
+        GameObject itemInstance = Instantiate(itemPrefab, InventoryObjectRotationPoint.transform);
+        itemInstance.GetComponent<RectTransform>().localPosition = InventoryObjectRotationPoint.transform.localPosition;
+        UpdateItemDescription(inventoryItem);
     }
     public void RemoveItem(InventoryItem inventoryItem)
     {
         if (items.Contains(inventoryItem))
         {
             items.Remove(inventoryItem);
-
-            GameObject itemPrefab = itemPrefabs[(int)inventoryItem - 1];
-            for (int i = 0; i < inventorySlots.Count; i++)
-            {
-                if (inventorySlots[i].transform.childCount > 0)
-                {
-                    GameObject child = inventorySlots[i].transform.GetChild(0).gameObject;
-                    if (child.name.Contains(itemPrefab.name))
-                    {
-                        Destroy(child);
-                        itemCount--;
-                        break;
-                    }
-                }
-            }
+            UpdateItemDescription(inventoryItem);
         }
     }
 
@@ -67,6 +51,22 @@ public class PlayerInventory : MonoBehaviour
         }
 
         return false;
+    }
+
+    private bool UpdateItemDescription(InventoryItem inventoryItem)
+    {
+        switch (inventoryItem)
+        {
+            case InventoryItem.Gear:
+                itemDescriptionText.text = "A rusty gear. It looks like it could be used to fix something.";
+                return true;
+            case InventoryItem.Book:
+                itemDescriptionText.text = "An old book. The title is faded, but it looks like it could contain important information.";
+                return true;
+            default:
+                itemDescriptionText.text = "";
+                return false;
+        }
     }
 }
 

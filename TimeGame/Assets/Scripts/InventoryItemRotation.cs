@@ -5,6 +5,7 @@ public class InventoryItemRotation : MonoBehaviour
     [SerializeField] public GameObject itemToRotate;
     private bool isDragging = false;
     [HideInInspector] public Quaternion startRotation;
+    public string buttonParentName = null;
 
     void Start()
     {
