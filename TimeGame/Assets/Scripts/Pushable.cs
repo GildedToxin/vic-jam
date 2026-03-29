@@ -20,6 +20,8 @@ public class Pushable : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public bool canPush = true;
+
     public void Push(Direction pushDirection, PlayerController player)
     {
         print("start");
@@ -32,6 +34,7 @@ public class Pushable : MonoBehaviour
         if (pushDirection == Direction.Up && Cords.y == MaxCords.y)
             return;
 
+        canPush = false;
         var dir = Vector3.zero;
 
         if (pushDirection == Direction.Left)
@@ -96,7 +99,8 @@ public class Pushable : MonoBehaviour
         StartCoroutine(LerpBack(player, dir, .25f, .25f));
 
 
-      
+
+
     }
 
     IEnumerator LerpBack(PlayerController player, Vector3 dir, float distance, float duration)
@@ -129,7 +133,7 @@ public class Pushable : MonoBehaviour
         {
             FindAnyObjectByType<LadderFall>().MoveLadder();
         }
-
+        canPush = true;
     }
 
     private void PlayPushSound(AudioSource source)
