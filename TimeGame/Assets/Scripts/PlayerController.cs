@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1.5f;
 
     [Header("References")]
+    public DialogueScript dialogueScript;
     public Material normalMaterial;
     public Material pushingMaterial;
     public GameObject model;
