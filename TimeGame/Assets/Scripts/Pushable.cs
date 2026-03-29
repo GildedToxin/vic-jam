@@ -83,6 +83,7 @@ public class Pushable : MonoBehaviour
 
             transform.position = Vector3.Lerp(startPos, targetPosition, t);
             player.transform.position = Vector3.Lerp(startPosPlayer, targetPositionPlayer, t);
+            player.transform.rotation = Quaternion.LookRotation(dir);
             yield return null;
         }
 
