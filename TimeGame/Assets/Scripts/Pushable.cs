@@ -8,6 +8,7 @@ public class Pushable : MonoBehaviour
 {
 
     [SerializeField] private float moveDistance;
+    [SerializeField] private float moveDistancelr;
     [SerializeField] private float moveDuration = 2f;
 
 
@@ -52,20 +53,21 @@ public class Pushable : MonoBehaviour
             Cords.y -= 1;
         }
 
-
+        var dist = (pushDirection == Direction.Left || pushDirection == Direction.Right) ? moveDistancelr : moveDistance;
 
         print("start");
-        StartCoroutine(MoveToTarget(player, dir));
+        StartCoroutine(MoveToTarget(player, dir, dist));
 
+     
 
     }
-    private IEnumerator MoveToTarget(PlayerController player, Vector3 dir)
+    private IEnumerator MoveToTarget(PlayerController player, Vector3 dir, float dist)
     {
         Vector3 startPos = transform.position;
-        var targetPosition = transform.position + (dir * moveDistance);
+        var targetPosition = transform.position + (dir * dist);
 
         Vector3 startPosPlayer = player.transform.position;
-        var targetPositionPlayer = player.transform.position + (dir * moveDistance);
+        var targetPositionPlayer = player.transform.position + (dir * dist);
 
         float elapsed = 0f;
 
@@ -89,5 +91,10 @@ public class Pushable : MonoBehaviour
 
         player.SetIsPushing(false);
         print("move");
+
+        if (Cords.x == 2 && Cords.y == 4)
+        {
+            FindAnyObjectByType<LadderFall>().MoveLadder();
+        }
     }
 }
