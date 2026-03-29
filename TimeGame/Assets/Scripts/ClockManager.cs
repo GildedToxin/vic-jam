@@ -63,6 +63,7 @@ public class ClockManager : Lock
         if (mouthMinute && mouthHour)
         {
             graveSovled = true;
+            FindAnyObjectByType<GraveStone>().MoveGrave();
         }
 
         bool graveMinute = Mathf.Abs(Mathf.DeltaAngle(minuteZ, 90f)) < 2f;
@@ -71,6 +72,7 @@ public class ClockManager : Lock
         if (graveMinute && graveHour)
         {
             mouthSolved = true;
+            FindAnyObjectByType<Ferryman>().OpenJaw();
         }
 
         if (graveSovled && mouthSolved)

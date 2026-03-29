@@ -80,4 +80,5 @@ public enum InventoryItem
     None,
     Gear,
     Book,
+    Coin,
 }
