@@ -9,6 +9,8 @@ public class PushedObjectCollider : MonoBehaviour
         print("start");
         if (other.gameObject.CompareTag("Player"))
         {
+            if(!GetComponentInParent<Pushable>().canPush)
+                return;
             print("start");
             GetComponentInParent<Pushable>().Push(pushDirection, other.GetComponent<PlayerController>());
         }
