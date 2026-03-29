@@ -3,7 +3,7 @@ using UnityEngine;
 public class PickUpItem : Interactable
 {
     [SerializeField] private InventoryItem InventoryItem = InventoryItem.None;
-    public override string PromptText { get; set; } = "Press E to interact";
+   // public override string PromptText { get; set; } = "Press E to interact";
 
     public BoxCollider boxCollider;
     public bool delete = false;
