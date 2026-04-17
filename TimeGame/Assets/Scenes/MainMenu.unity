@@ -22673,6 +22673,9 @@ MonoBehaviour:
   Cords: {x: 0, y: 1}
   MaxCords: {x: 0, y: 1}
   audioSource: {fileID: 0}
+  canPush: 1
+  hasFallen: 0
+  Puzzel: {fileID: 0}
 --- !u!1 &1102578566
 GameObject:
   m_ObjectHideFlags: 0
@@ -31197,6 +31200,8 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   bookIndex: 0
   firstbook: {fileID: 0}
+  source: {fileID: 0}
+  puzzel: {fileID: 0}
   fallDistance: 0.25
   fallDuration: 2
   fallCurve:
@@ -35552,6 +35557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d611d5c2b0a5349b66dc37cea6f0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  puzzel: {fileID: 0}
 --- !u!65 &1722289884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45640,9 +45646,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6899951004202202936}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 6899951004202202937}
+        m_TargetAssemblyTypeName: ReturnToRicochetLauncher, Assembly-CSharp
+        m_MethodName: ReturnToLauncher
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -46159,6 +46165,7 @@ GameObject:
   - component: {fileID: 687899904482115551}
   - component: {fileID: 5521875259926347809}
   - component: {fileID: 6899951004202202936}
+  - component: {fileID: 6899951004202202937}
   m_Layer: 5
   m_Name: PauseMenuCanvas
   m_TagString: Untagged
@@ -46178,6 +46185,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed1220c4556c694188dfe92f53f4d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+--- !u!114 &6899951004202202937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899951004202202935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28fe59f4203dd9643a7f74a5ba816688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReturnToRicochetLauncher
+  launcherExe: RicochetLauncher.exe
 --- !u!1 &6906058765480565495
 GameObject:
   m_ObjectHideFlags: 0
