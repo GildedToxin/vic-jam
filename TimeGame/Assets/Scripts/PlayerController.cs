@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         controller = GetComponent<CharacterController>();
 
         if (cameraTransform == null)
@@ -93,6 +94,12 @@ public class PlayerController : MonoBehaviour
         else if (isInClock && context.started)
         {
             FindAnyObjectByType<ClockManager>().LeaveClock();
+        }
+        else
+        {
+            if (!context.started)
+                return;
+            FindAnyObjectByType<PauseUI>().pause();
         }
     }
 
