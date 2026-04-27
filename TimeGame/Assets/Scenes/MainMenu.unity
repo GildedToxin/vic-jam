@@ -46197,6 +46197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fe59f4203dd9643a7f74a5ba816688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReturnToRicochetLauncher
+  quit: {fileID: 1326940483777120042}
   launcherExe: RicochetLauncher.exe
 --- !u!1 &6906058765480565495
 GameObject:
