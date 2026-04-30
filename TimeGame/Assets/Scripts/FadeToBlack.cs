@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeToBlack : MonoBehaviour
 {
@@ -44,11 +45,12 @@ public class FadeToBlack : MonoBehaviour
         panel.color = color;
         e.SetActive(true);
         r.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     public void Quit()
     {
-
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 }
